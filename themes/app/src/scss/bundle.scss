@@ -1,0 +1,24 @@
+@import 'config';
+@import 'mixins';
+@import 'tools';
+@import 'utilities';
+
+
+// Components
+@import 'components';
+
+body {
+  background: white;
+  position: relative;
+  z-index: 0;
+}
+
+#app {
+  z-index: 1;
+  position: relative;
+}
+
+.generic-page-wrapper {
+  position: relative;
+  z-index: 2;
+}

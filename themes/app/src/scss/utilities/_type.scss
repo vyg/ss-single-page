@@ -1,0 +1,133 @@
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $primary-font-family;
+  color: $primary-font-color;
+}
+
+a {
+  text-decoration: none;
+}
+
+@if (variable-exists(font-sizes)) {
+  @each $class, $value in $font-sizes {
+    .#{$class} {
+      $responsive: $value * $pixel-to-vw;
+      @include responsive-font($responsive, map-get($min-font-sizes, $class), map-get($max-font-sizes, $class), $value+px)
+    }
+  }
+}
+
+@if (variable-exists(font-weights)) {
+  @each $class, $value in $font-weights {
+    .#{$class} { font-weight: $value; }
+  }
+}
+
+.h1 { @extend .f1; @extend .bold }
+.h2 { @extend .f2; @extend .bold   }
+.h3 { @extend .f3; @extend .semi-bold }
+.h4 { @extend .f4; @extend .semi-bold }
+.h5 { @extend .f5; @extend .semi-bold }
+.h6 { @extend .f6; @extend .bold      }
+
+
+h1 { @extend .h1; }
+h2 { @extend .h2; }
+h3 { @extend .h3; }
+h4 { @extend .h4; }
+h5 { @extend .h5; }
+h6 { @extend .h6; }
+
+p {
+  @extend .f6;
+}
+
+.large-body { font-size: 1.25rem; }
+
+.bold { font-weight: 700; }
+.medium { font-weight: 500; }
+.regular { font-weight: 400; }
+.italic { font-style: italic; }
+
+.ttn { text-transform: none; }
+.ttu { text-transform: uppercase; }
+
+.tds { text-decoration: line-through; }
+.tdu { text-decoration: underline; }
+.tdn { text-decoration: none; }
+
+.h-underline:hover { text-decoration: underline; }
+
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+.justify { text-align: justify; }
+
+.nowrap { white-space: nowrap; }
+.break-word { word-wrap: break-word; }
+
+.wrap-mobile {
+  word-wrap: break-word;
+  @media (--breakpoint-sm) {
+    white-space: nowrap;
+  }
+}
+
+.lh-solid { line-height: 1; }
+.lh-heading { line-height: 1.1; }
+.lh-title { line-height: 1.25; }
+.lh-copy { line-height: 1.5; }
+
+// Lists
+.list-style-none { list-style: none; }
+.list-reset {
+  list-style: none;
+  padding-left: 0;
+}
+
+.list-horizontal {
+  > li {
+    display: inline-block;
+  }
+}
+
+.dark-grey {
+  color: $dark-grey;
+}
+
+.white {
+  color: $white;
+}
+
+.black {
+  color: $black;
+}
+
+.link-hover-effect {
+  display: inline-block;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: inherit;
+    transition: width .4s;
+  }
+
+  &:hover {
+    &:after {
+      width: 100%;
+    }
+  }
+
+  &.white:after {
+    background-color: $white;
+  }
+
+}

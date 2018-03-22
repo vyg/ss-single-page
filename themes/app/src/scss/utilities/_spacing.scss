@@ -1,0 +1,60 @@
+// Margins
+
+.ml-auto { margin-left: auto; }
+.mr-auto { margin-right: auto; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.mb-auto { margin-bottom: auto; }
+.mt-auto { margin-top: auto; }
+
+@for $i from 0 through $margin-count {
+    .m#{$i} { margin: #{$i * $spacing-unit}; }
+    .mt#{$i} { margin-top: #{$i * $spacing-unit}; }
+    .mr#{$i} { margin-right: #{$i * $spacing-unit}; }
+    .mb#{$i} { margin-bottom: #{$i * $spacing-unit}; }
+    .ml#{$i} { margin-left: #{$i * $spacing-unit}; }
+    .my#{$i} { margin-bottom: #{$i * $spacing-unit}; margin-top: #{$i * $spacing-unit}; }
+    .mx#{$i} { margin-left: #{$i * $spacing-unit}; margin-right: #{$i * $spacing-unit}; }
+}
+
+@if (variable-exists(breakpoints)) {
+  @each $bp-name, $bp-value in $breakpoints {
+    @media (min-width: $bp-value) {
+      @for $i from 0 through $margin-count {
+        .#{$bp-name}-m#{$i} { margin: #{$i * $spacing-unit}; }
+        .#{$bp-name}-mt#{$i} { margin-top: #{$i * $spacing-unit}; }
+        .#{$bp-name}-mr#{$i} { margin-right: #{$i * $spacing-unit}; }
+        .#{$bp-name}-mb#{$i} { margin-bottom: #{$i * $spacing-unit}; }
+        .#{$bp-name}-ml#{$i} { margin-left: #{$i * $spacing-unit}; }
+        .#{$bp-name}-my#{$i} { margin-bottom: #{$i * $spacing-unit}; margin-top: #{$i * $spacing-unit}; }
+        .#{$bp-name}-mx#{$i} { margin-left: #{$i * $spacing-unit}; margin-right: #{$i * $spacing-unit}; }
+      }
+    }
+  }
+}
+
+@for $i from 0 through $padding-count {
+  .p#{$i} { padding: #{$i * $spacing-unit}; }
+  .pt#{$i} { padding-top: #{$i * $spacing-unit}; }
+  .pr#{$i} { padding-right: #{$i * $spacing-unit}; }
+  .pb#{$i} { padding-bottom: #{$i * $spacing-unit}; }
+  .pl#{$i} { padding-left: #{$i * $spacing-unit}; }
+  .py#{$i} { padding-bottom: #{$i * $spacing-unit}; padding-top: #{$i * $spacing-unit}; }
+  .px#{$i} { padding-left: #{$i * $spacing-unit}; padding-right: #{$i * $spacing-unit}; }
+}
+
+@if (variable-exists(breakpoints)) {
+  @each $bp-name, $bp-value in $breakpoints {
+    @media (min-width: $bp-value) {
+
+      @for $i from 0 through $padding-count {
+        .#{$bp-name}-p#{$i} { padding: #{$i * $spacing-unit}; }
+        .#{$bp-name}-pt#{$i} { padding-top: #{$i * $spacing-unit}; }
+        .#{$bp-name}-pr#{$i} { padding-right: #{$i  * $spacing-unit}; }
+        .#{$bp-name}-pb#{$i} { padding-bottom: #{$i * $spacing-unit}; }
+        .#{$bp-name}-pl#{$i} { padding-left: #{$i * $spacing-unit}; }
+        .#{$bp-name}-py#{$i} { padding-bottom: #{$i * $spacing-unit}; padding-top: #{$i * $spacing-unit}; }
+        .#{$bp-name}-px#{$i} { padding-left: #{$i * $spacing-unit}; padding-right: #{$i * $spacing-unit}; }
+      }
+    }
+  }
+}

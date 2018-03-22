@@ -1,0 +1,10 @@
+FROM node:8
+
+ADD themes/app/package.json /var/www/html/themes/app/package.json
+ADD themes/app/yarn.lock /var/www/html/themes/app/yarn.lock
+
+WORKDIR /var/www/html/themes/app
+
+RUN yarn
+
+CMD yarn start

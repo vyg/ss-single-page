@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  web:
+    image: voyagestudio/silverstripe-web:7.1
+    ports:
+      - '8080:80'
+    links:
+      - db
+      - assets
+    volumes:
+      - '.:/var/www/html'
+
+  db:
+    image: mysql
+    ports:
+      - '4406:3306'
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+
+  composer:
+    image: composer/composer:php5
+    volumes:
+      - '.:/app'
+  
+  assets:
+    build:
+      context: .
+      dockerfile: Dockerfile.webpack
+    ports:
+      - '3000:3000'
+    volumes:
+      - './themes/app:/var/www/html/themes/app'

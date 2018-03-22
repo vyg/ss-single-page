@@ -1,0 +1,19 @@
+/silverstripe-cache/
+/.env
+/vendor/
+/themes/simple/
+/resources/
+/public/resources/
+
+### Node.js Packages ###
+/**/node_modules
+
+### Hot updates ###
+**hot-update**
+
+### SilverStripe Assets ###
+public/assets/*
+public/assets/.htaccess
+public/assets/web.config
+
+.DS_Store

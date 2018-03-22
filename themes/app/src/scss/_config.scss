@@ -1,0 +1,120 @@
+$primary-font-family: 'GT Walsheim', Helvetica, Arial, sans-serif;
+$secondary-font-family: 'Times New Roman', serif;
+
+// Responsive Styling
+$standard-width: 1440;
+$unit: 75vw;
+$pixel-to-vw: 100vw / $standard-width;
+$layout-unit: 16 * (100vw / $standard-width);
+$spacing-unit: 8 * (100vw / $standard-width);
+
+$font-sizes: (
+  f1: 42, // 42px
+  f2: 32, // 32px
+  f3: 24, // 24px
+  f4: 20, // 20px
+  f5: 18, // 18px
+  f6: 16, // 16px
+  f7: 14 // 14px
+);
+
+$min-font-sizes: (
+  f1: 42px,
+  f2: 32px,
+  f3: 24px,
+  f4: 20px,
+  f5: 18px,
+  f6: 16px,
+  f7: 14px,
+);
+
+$max-font-sizes: (
+  f1: 80px,
+  f2: 44px,
+  f3: 32px,
+  f4: 24px,
+  f5: 20px,
+  f6: 18px,
+  f7: 16px,
+);
+
+$font-weights: (
+  light: 300,
+  normal: 400,
+  medium: 500,
+  semi-bold: 600,
+  bold: 700
+);
+
+$icon-sizes: (
+  13: 13px,
+  16: 16px,
+  18: 18px,
+  24: 24px,
+  32: 32px
+);
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 48em,  //768px
+  md: 64em,  //1024px
+  lg: 74em
+);
+
+// Colours
+$white: #ffffff;
+$black: #000000;
+$yellow: #f0d485;
+$orange: #f39535;
+$red: #f33535;
+$dark-grey: #4d4949;
+$homepage-grey: #5b5b5b;
+$lite-grey: #d8d8d8;
+$homepage-bg: #fdfcfc;
+$blue: #070828 !default;
+
+$body-background: #fdfcfc;
+$primary-font-color: #070828 !default;
+// $secondary-font-color:;
+//
+
+$border-color: $lite-grey;
+$border-focus-color: $dark-grey;
+
+
+// Max widths
+$max-widths-on: false !default;
+
+$standard-max-width: 1440px;
+
+$container-max-widths: (
+  xs: 560px,
+  sm: 780px,
+  md: 960px,
+  lg: 1440px
+);
+
+$grid-columns: 12 !default;
+$grid-gutter-width-base: 20vw !default;
+$grid-gutter-widths: (
+  xs: $grid-gutter-width-base,
+  sm: $grid-gutter-width-base,
+  md: $grid-gutter-width-base,
+  lg: $grid-gutter-width-base,
+) !default;
+
+// Lets use some post-css magic with @custom-media
+// To include these media queries, just use:
+// @media (--breakpoint-sm) {}
+
+@if (variable-exists(breakpoints)) {
+  @each $bp-name, $bp-value in $breakpoints {
+    @custom-media --breakpoint-#{$bp-name} (min-width: #{$bp-value});
+  }
+}
+
+// Loop Counts
+$margin-count: 10; //Generates margin classes 0.5rem increments
+$padding-count: 10; //Generates padding classes in 0.5rem increments
+$layout-count: 25; //Generates height/width classes in 0.5rem increments

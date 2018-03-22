@@ -1,0 +1,27 @@
+default: &default
+  source_path: ./src
+  output_path: ../dist
+  public_output_path: dist/
+
+  extensions:
+  - .js
+  - .jsx
+  - .sass
+  - .scss
+  - .css
+  - .png
+  - .svg
+  - .gif
+  - .jpeg
+  - .jpg
+
+development:
+  <<: *default
+
+  dev_server:
+    host: 0.0.0.0
+    port: 3000
+    https: false
+
+production:
+  <<: *default
