@@ -1,0 +1,12 @@
+---
+Name: ss-graphql
+---
+
+SilverStripe\GraphQL\Controller:
+  schema:
+    scaffolding:
+      types:
+        Page:
+          fields: '*'
+          operations:
+            read: true
